@@ -1,4 +1,4 @@
-*** Terminal Commands
+### Terminal Commands
 - package installations: ```npm install```
 - run in localhost: ```npm run start:dev```
 
