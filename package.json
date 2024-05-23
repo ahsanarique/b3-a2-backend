@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./dist/api/server.js",
-    "start:prod": "node ./dist/api/server.js",
-    "start:dev": "ts-node-dev --respawn --transpile-only src/api/server.ts",
+    "start": "node ./dist/api/index.js",
+    "start:prod": "node ./dist/api/index.js",
+    "start:dev": "ts-node-dev --respawn --transpile-only src/api/index.ts",
     "build": "tsc",
     "lint": "eslint src --ignore-path .eslintignore --ext .ts",
     "lint:fix": "npx eslint src --fix",

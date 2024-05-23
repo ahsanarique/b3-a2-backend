@@ -8,6 +8,9 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => res.send("Express on Vercel"));
+app.get("/api", (req, res) => res.send("Base route for api"));
+
 app.use('/api/products', ProductRoutes);
 app.use('/api/orders', OrderRoutes);
 
