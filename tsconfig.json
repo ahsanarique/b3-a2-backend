@@ -1,6 +1,9 @@
 {
   "include": ["src"],
   "exclude": ["node_modules"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off"
+  },
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
