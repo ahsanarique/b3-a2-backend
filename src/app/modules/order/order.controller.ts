@@ -38,7 +38,7 @@ const getOrders = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-export const orderControllers = {
+export const OrderControllers = {
     createOrder,
     getOrders
 }
