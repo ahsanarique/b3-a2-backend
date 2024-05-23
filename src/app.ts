@@ -1,4 +1,4 @@
-import express, { Application } from 'express';
+import express, { Application, Request, Response } from 'express';
 import cors from "cors";
 import { ProductRoutes } from './app/modules/product/product.route';
 
@@ -8,5 +8,12 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/products", ProductRoutes);
+
+const initial = (req: Request, res: Response) => {
+  const message = "Welcome"
+  res.send(message);
+}
+
+app.get("/", initial);
 
 export default app;
