@@ -2,15 +2,6 @@ import { Product } from './product.model';
 import { TProduct } from './product.interface';
 import { ProductSchema } from './product.validation';
 
-const isProductAvailable = async (productId: string): Promise<boolean> => {
-  try {
-    const product: TProduct | null = await Product.findById(productId);
-    return product?.inventory.inStock ?? false;
-  } catch (error: any) {
-    throw new Error(`Error checking product availability: ${error.message}`);
-  }
-};
-
 const createProductIntoDB = async (productData: any): Promise<TProduct> => {
   try {
     const validatedProduct = ProductSchema.parse(productData);
@@ -62,7 +53,7 @@ const getSingleProductFromDB = async (
 
 const updateProductInDB = async (
   productId: string,
-  productData: any
+  productData: TProduct
 ): Promise<TProduct | null> => {
   try {
     const validatedProduct = ProductSchema.partial().parse(productData);
