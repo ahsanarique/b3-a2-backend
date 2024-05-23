@@ -1,14 +1,17 @@
-import express, { Application } from 'express';
-import cors from 'cors';
-import { ProductRoutes } from '../app/modules/product/product.route';
-import { OrderRoutes } from '../app/modules/order/order.route';
+import config from "../app/config";
+import mongoose from "mongoose";
+import app from "./app";
 
-const app: Application = express();
+async function main() {
+  try {
+    await mongoose.connect(config.database_url as string);
 
-app.use(express.json());
-app.use(cors());
+    app.listen(config.port ? config.port : 3000, () => {
+      console.log(`e-commerce app listening on port ${config.port}`);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-app.use('/api/products', ProductRoutes);
-app.use('/api/orders', OrderRoutes);
-
-export default app;
+main();
